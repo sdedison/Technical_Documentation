@@ -13,36 +13,133 @@
 		<ul class="navigation">
 			<li> <a href="#introduction" class="nav-link"> Introduction </a> </li>
 			<li> <a href="#know" class="nav-link"> What you should know </a> </li>
-			<li> <a href="" class="nav-link"> section</a> </li>
-			<li> <a href="" class="nav-link"> section</a> </li>
-			<li> <a href="" class="nav-link"> section</a> </li>
+			<li> <a href="#techniques" class="nav-link"> Types of layout techniques</a> </li>
+			<li> <a href="#normal" class="nav-link"> Normal layout flow </a> </li>
+			<li> <a href="#floats" class="nav-link"> Floats </a> </li>
+			<li> <a href="#positioning" class="nav-link"> Positioning techniques </a> </li>
+			<li> <a href="#tables" class="nav-link"> CSS tables </a> </li>
+			<li> <a href="#flexbox" class="nav-link"> Flexible boxes </a> </li>
+			<li> <a href="#grid" class="nav-link"> Grid layout </a> </li>
 		</ul>
 	</nav>
 
 	<main id="main-doc">
 
-			<section class="main-section" id="introduction">
-				<header><h1> Introduction </h1></header>
-				<p> At this point we've already looked at CSS fundamentals, how to style text, and how to style and manipulate the boxes that your content sits inside. Now it's time to look at how to place your boxes in the right place in relation to the viewport, and one another. We have covered the necessary prerequisites so we can now dive deep into CSS layout, looking at different display settings, traditional layout methods involving float and positioning, and modern layout tools like flexbox. </p>
-			</section>
-			<section class="main-section" id="know">
-				<header><h1> What you should know </h1></header>
-				<p> Before starting this module you should already: </p>
-				<ul class="list">
-					<li>Have basic familiarity with HTML</li>
-					<li>Be comfortable with CSS fundamentals</li>
-					<li>Understand how to style boxes.</li>
-				</ul>
-			</section>
-			<section class="main-section" id="">
-				<header><h1> Lorem ipsum dolor sit amet.</h1></header>
-			</section>
-			<section class="main-section" id="">
-				<header><h1> Lorem ipsum dolor sit amet.</h1></header>
-			</section>
-			<section class="main-section" id="">
-				<header><h1> Lorem ipsum dolor sit amet.</h1></header>
-			</section>
+		<section class="main-section" id="introduction">
+			<header><h1> Introduction </h1></header>
+			<p> At this point we've already looked at CSS fundamentals, how to style text, and how to style and manipulate the boxes that your content sits inside. Now it's time to look at how to place your boxes in the right place in relation to the viewport, and one another. We have covered the necessary prerequisites so we can now dive deep into CSS layout, looking at different display settings, traditional layout methods involving float and positioning, and modern layout tools like flexbox. </p>
+		</section>
+		<section class="main-section" id="know">
+			<header><h1> What you should know </h1></header>
+			<p> Before starting this module you should already: </p>
+			<ul class="list">
+				<li>Have basic familiarity with HTML</li>
+				<li>Be comfortable with CSS fundamentals</li>
+				<li>Understand how to style boxes.</li>
+			</ul>
+		</section>
+		<section class="main-section" id="techniques">
+			<header><h1> Types of layout techniques </h1></header>
+			<p>CSS page layout techniques allow us to take elements contained in a web page and control where they are positioned relative to their default position in normal layout flow, the other elements around them, their parent container, or the main viewport/window.  The page layout techniques we'll be covering in more detail in this module are:</p>
+			<ul class="list">
+				<li>Floats</li>
+				<li>Positioning</li>
+				<li>CSS Tables</li>
+				<li>Flexbox</li>
+				<li>Grid</li>
+			</ul>
+			<p>Each technique has its uses, advantages, and disadvantages.</p>
+		</section>
+		<section class="main-section" id="normal">
+			<header><h1> Normal Layout Flow </h1></header>
+			<p> Normal flow is how the browser lays out HTML pages by default when you do nothing to control page layout. Let's look at a quick HTML example: </p>
+			<code class="code-example"> 
+&ltp&gtI love my cat.&lt/p&gt
+
+&ltul&gt
+  &ltli&gtBuy cat food&lt/li&gt
+  &ltli&gtExercise&lt/li&gt
+  &ltli&gtCheer up friend&lt/li&gt
+&lt/ul&gt
+
+&ltp&gtThe end!&ltp&gt
+			</code>
+			<p> By default, the browser will display the code as follows: </p>
+			<div class="output-box img1">
+				<img  class="images" src="example1.png" alt="example of normal layout flow">
+			</div>
+			<p>Note here how the HTML is displayed in the exact order in which it appears in the source code, with elements stacked up on top of one another — the first paragraph, followed by the unordered list, followed by the second paragraph. <br> <br>
+			Layout techniques tend to override this default behaviour, using:</p>
+			<ul class="list">
+				<li>The position property — static is the default in normal flow, but you can cause elements to be laid out differently using other values, for example always fixed to the top left of the browser viewport.</li>
+				<li>Floats — applying a float value such as left can cause block level elements to line up alongside one another rather than sit on top of one another</li>
+				<li>The display property — standard values such as block, inline or inline-block can change how elements behave in normal flow (see Types of CSS boxes for more information), whereas uncommon or specialized values allow us to lay out elements in completely different ways using tools like Flexbox.</li>
+			</ul>
+		</section>
+		<section class="main-section" id="floats">
+			<header><h1> Floats </h1></header>
+			<p> Floats is a technique that allows the elements to float to the left or right of one another, rather than the default of sitting on top of one another. The main uses of floats are to lay out columns and float text around an image. To get you started, let's take a quick look at the float property and then look at a simple example. <br> <br> The float property has four possible values:</p>
+			<ul class="list">
+				<li>left — floats the element to the left.</li>
+				<li>right — floats the element to the right.</li>
+				<li>none — specified no floating at all. This is the default value.</li>
+				<li>inherit — specifies that the value of the float property should be inherited from the parent element.</li>
+			</ul>
+			<p> Let's show how we can create a simple two column layout using floats. First, some HTML: </p>
+			<code class="code-example">
+&lth1&gt2 column layout example&lt/h1&gt
+
+&ltdiv&gt
+  &lth2&gtFirst column&lt/h2&gt
+  &ltp&gt Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus aliquam dolor, eu lacinia lorem placerat vulputate. &lt/p&gt
+&lt/div&gt
+
+&ltdiv&gt
+  &lth2&gtSecond column&lt/h2&gt
+  &ltp&gtNam vulputate diam nec tempor bibendum. Donec luctus augue eget malesuada ultrices. Phasellus turpis est, posuere sit amet dapibus ut.&lt/p&gt
+&lt/div&gt
+			</code>
+			<p>Here we have a top-level heading, and two simple &ltdiv&gts, each containing a second-level heading and a paragraph. By default, the content will be laid out in source order, from top to bottom going down the page:</p>
+			<div class="output-box img2">
+				<img class="images" src="example2.png" alt="2 column normal flow example">
+			</div>
+			<p> Let's change things — we instead want our two &ltdiv&gts to sit side by side. To do this, we can use the following code. Note how the two &ltdiv&gts are floated one with a value of left, and one with a value of right, meaning that one will fly to the left, and one will fly to the right. They are also given width values that allow them to fit on the same line as one another and have a gutter in between (the total width will never be more than 100).</p>
+			<code class="code-example">
+div:nth-of-type(1) {
+  width: 48%;
+  float: left;
+}
+
+div:nth-of-type(2) {
+  width: 48%;
+  float: right;
+}	
+			</code>
+			<p>The updated example will look like so:</p>
+			<div class="output-box img3">
+				<img src="example3.png" alt="example of two cloumn implemented" class="images">
+			</div>
+		</section>
+
+		<section class="main-section" id="positioning">
+			<header><h1> Positioning Techniques </h1></header>
+		</section>
+
+		<section class="main-section" id="tables">
+			<header><h1> CSS Tables </h1></header>
+		</section>
+
+		<section class="main-section" id="flexbox">
+			<header><h1> Flexible boxes ("Flexbox") </h1></header>
+		</section>
+
+		<section class="main-section" id="grid">
+			<header><h1> Grid layout </h1></header>
+		</section>
+
+
+
+
 	</main>
 
 </body>
