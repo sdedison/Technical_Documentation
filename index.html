@@ -6,20 +6,22 @@
 	<link href="https://fonts.googleapis.com/css?family=Tajawal" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
+
 <body>
 
 	<nav id="nav-bar">
 		<header class="nav-head"> <h1> CSS Layout </h1> </header>
 		<ul class="navigation">
 			<li> <a href="#introduction" class="nav-link"> Introduction </a> </li>
-			<li> <a href="#know" class="nav-link"> What you should know </a> </li>
-			<li> <a href="#techniques" class="nav-link"> Types of layout techniques</a> </li>
-			<li> <a href="#normal" class="nav-link"> Normal layout flow </a> </li>
+			<li> <a href="#what_you_should_know" class="nav-link"> What you should know </a> </li>
+			<li> <a href="#types_of_layout_techniques" class="nav-link"> Types of layout techniques</a> </li>
+			<li> <a href="#normal_layout_flow" class="nav-link"> Normal layout flow </a> </li>
 			<li> <a href="#floats" class="nav-link"> Floats </a> </li>
-			<li> <a href="#positioning" class="nav-link"> Positioning techniques </a> </li>
-			<li> <a href="#tables" class="nav-link"> CSS tables </a> </li>
-			<li> <a href="#flexbox" class="nav-link"> Flexible boxes </a> </li>
-			<li> <a href="#grid" class="nav-link"> Grid layout </a> </li>
+			<li> <a href="#positioning_techniques" class="nav-link"> Positioning techniques </a> </li>
+			<li> <a href="#css_tables" class="nav-link"> CSS tables </a> </li>
+			<li> <a href="#flexible_boxes" class="nav-link"> Flexible boxes </a> </li>
+			<li> <a href="#grid_layout" class="nav-link"> Grid layout </a> </li>
+			<li> <a href="#reference" class="nav-link"> Reference </a> </li>
 		</ul>
 	</nav>
 
@@ -29,7 +31,8 @@
 			<header><h1> Introduction </h1></header>
 			<p> At this point we've already looked at CSS fundamentals, how to style text, and how to style and manipulate the boxes that your content sits inside. Now it's time to look at how to place your boxes in the right place in relation to the viewport, and one another. We have covered the necessary prerequisites so we can now dive deep into CSS layout, looking at different display settings, traditional layout methods involving float and positioning, and modern layout tools like flexbox. </p>
 		</section>
-		<section class="main-section" id="know">
+
+		<section class="main-section" id="what_you_should_know">
 			<header><h1> What you should know </h1></header>
 			<p> Before starting this module you should already: </p>
 			<ul class="list">
@@ -38,7 +41,8 @@
 				<li>Understand how to style boxes.</li>
 			</ul>
 		</section>
-		<section class="main-section" id="techniques">
+
+		<section class="main-section" id="types_of_layout_techniques">
 			<header><h1> Types of layout techniques </h1></header>
 			<p>CSS page layout techniques allow us to take elements contained in a web page and control where they are positioned relative to their default position in normal layout flow, the other elements around them, their parent container, or the main viewport/window.  The page layout techniques we'll be covering in more detail in this module are:</p>
 			<ul class="list">
@@ -50,8 +54,9 @@
 			</ul>
 			<p>Each technique has its uses, advantages, and disadvantages.</p>
 		</section>
-		<section class="main-section" id="normal">
-			<header><h1> Normal Layout Flow </h1></header>
+
+		<section class="main-section" id="normal_layout_flow">
+			<header><h1> Normal layout flow </h1></header>
 			<p> Normal flow is how the browser lays out HTML pages by default when you do nothing to control page layout. Let's look at a quick HTML example: </p>
 			<code class="code-example"> 
 &ltp&gtI love my cat.&lt/p&gt
@@ -76,6 +81,7 @@
 				<li>The display property — standard values such as block, inline or inline-block can change how elements behave in normal flow (see Types of CSS boxes for more information), whereas uncommon or specialized values allow us to lay out elements in completely different ways using tools like Flexbox.</li>
 			</ul>
 		</section>
+
 		<section class="main-section" id="floats">
 			<header><h1> Floats </h1></header>
 			<p> Floats is a technique that allows the elements to float to the left or right of one another, rather than the default of sitting on top of one another. The main uses of floats are to lay out columns and float text around an image. To get you started, let's take a quick look at the float property and then look at a simple example. <br> <br> The float property has four possible values:</p>
@@ -121,24 +127,216 @@ div:nth-of-type(2) {
 			</div>
 		</section>
 
-		<section class="main-section" id="positioning">
-			<header><h1> Positioning Techniques </h1></header>
+		<section class="main-section" id="positioning_techniques">
+			<header><h1> Positioning techniques </h1></header>
+			<p>Positioning allows you to move an element from it's original spot on the page to another spot with great accuracy.</p>
+			<p>There are four main types of positioning you should know about:</p>
+			<ul class="list">
+				<li> <strong>Static positioning</strong> is the default that every element gets — it just means "put the element into its normal position in the document layout flow — nothing special to see here".</li>
+				<li> <strong>Relative positioning</strong> allows you to modify an element's position on the page, moving it relative to its position in normal flow — including making it overlap other elements on the page. This is useful for minor layout tweaks and design pinpointing.</li>
+				<li> <strong>Absolute positioning</strong> moves an element completely out of the page's normal layout flow, like it is sitting on its own separate layer. From there, you can fix it in a position relative to the edges of the page's &lthtml&gt element (or its nearest positioned ancestor element). This is useful for creating complex layout effects such as tabbed boxes where different content panels sit on top of one another and are shown and hidden as desired, or information panels that sit off screen by default, but can be made to slide on screen using a control button.</li>
+				<li> <strong>Fixed positioning</strong> is very similar to absolute positioning, except that it fixes an element relative to the browser viewport, not another element. This is useful for creating effects such as a persistent navigation menu that always stays in the same place on the screen as the rest of the content scrolls.</li>
+			</ul>
+
+			<h3>Simple Positioning Example</h3>	
+			<p>To provide familiarity with these page layout techniques, we'll show you a couple of quick examples. Our examples will all feature the same HTML, which is as follows:</p>
+			<code class="code-example">
+&lth1&gtPositioning&lt/h1&gt
+&ltp&gtI am a basic block level element.&lt/p&gt
+&ltp class="positioned"&gt I am a basic block level element.&lt/p&gt
+&ltp&gtI am a basic block level element.&lt/p&gt
+			</code>
+			<p>This HTML will be styled by default using the following CSS:</p>
+			<code class="code-example">
+body {
+  width: 500px;
+  margin: 0 auto;
+}
+
+p {
+  background: aqua;
+  border: 3px solid blue;
+  padding: 10px;
+  margin: 10px;
+}
+			</code>
+			<p>The rendered output is as follows:</p>
+			<div class="output-box img4">
+				<img class="images" src="example4.png" alt="base html for positioning example">
+			</div>
+
+			<h3>Relative Positioning</h3>
+			<p>A very common use of relative positioning is to make small tweaks in your layout, such as moving an icon down a bit so it lines up with a text label. To do this, we could add the following rule to add relative positioning:</p>
+			<code class="code-example">
+.positioned {
+  position: relative;
+  background: yellow;
+  top: 30px;
+  left: 30px;
+}
+			</code>
+			<p>Here we give our middle paragraph a position value of relative — this doesn't do anything on its own, so we also add top and left properties. These serve to move the affected element down and to the right — this might seem like the opposite of what you were expecting, but you need to think of it as the element being pushed on its left and top sides, which result in it moving right and down. <br> Adding this code will give the following result:</p>
+
+			<div class="output-box img4">
+				<img class="images" src="example5.png" alt="relative positioning">
+			</div>
+
+			<h3>Absolute Positioning</h3>
+			<p>Absolute positioning is used to move your elements anywhere around the web page, creating complex layouts. Interestingly, it is often used in concert with relative positioning and floats. <br> <br> Going back to our original non-positioned example, we could add the following CSS rule to implement absolute positioning:</p>
+
+			<code class="code-example">
+.positioned {
+  position: absolute;
+  background: yellow;
+  top: 30px;
+  left: 30px;
+}
+			</code>
+			<p>Here we give our middle paragraph a position value of absolute, and the same top and left properties as before. Adding this code, however, will give the following result:</p>
+
+			<div class="output-box img4">
+				<img class="images" src="example6.png" alt="relative positioning">
+			</div>
+
+			<p>This is very different! The positioned element has now been completely separated from the rest of the page layout and sits over the top of it. The other two paragraphs now sit together as if their positioned sibling doesn't exist. The top and left properties have a different effect on absolutely positioned elements than they do on relatively positioned elements. In this case they don't specify how much the element moves relative to its original position; instead, they specify the distance the element should sit from the top and left sides of the page's boundaries (the &lthtml&gt element, to be exact). <br> <br> We'll leave fixed positioning for now — it basically works in the same way, except that it remains fixed to the browser viewport's edges, not its positioned parent's edges.</p>
 		</section>
 
-		<section class="main-section" id="tables">
-			<header><h1> CSS Tables </h1></header>
+		<section class="main-section" id="css_tables">
+			<header><h1> CSS tables </h1></header>
+			<p>HTML tables are fine for displaying tabular data, but many years ago — before even basic CSS was supported reliably across browsers — web developers used to also use tables for entire web page layouts — putting their headers, footers, different columns, etc. in various table rows and columns. This worked at the time, but it has many problems — table layouts are inflexible, very heavy on markup, difficult to debug, and semantically wrong (e.g., screen reader users have problems navigating table layouts). <br><br> CSS tables exist to allow you to lay out elements like they were a table, without any of the issues described above — this may sound strange, and you should use table elements for tabular data, but sometimes this can be useful. For example, you might want to lay out a form with the labels and text inputs lined up; this can be tricky, but CSS tables make it easy. <br><br> Let's look at an example. First, some simple markup that creates an HTML form. Each input element has a label, and we've also included a caption inside a paragraph. Each label/input pair is wrapped in a &ltdiv&gt, for layout purposes.</p>
+			<code class="code-example">
+&ltform&gt
+  &ltp&gtFirst of all, tell us your name and age.&lt/p&gt
+  &ltdiv&gt
+    &ltlabel for="fname"&gtFirst name:&lt/label&gt
+    &ltinput type="text" id="fname"&gt
+  &lt/div&gt
+  &ltdiv&gt
+    &ltlabel for="lname"&gtLast name:&lt/label&gt
+    &ltinput type="text" id="lname"&gt
+  &lt/div&gt
+  &ltdiv&gt
+    &ltlabel for="age"&gtAge:&lt/label&gt
+    &ltinput type="text" id="age"&gt
+  &lt/div&gt
+&lt/form&gt
+			</code>
+			<p>Now, the CSS for our example. Most of the CSS is fairly ordinary, except for the uses of the display property. The &ltform&gt, &ltdiv&gts, and &ltlabel&gts and &ltinput&gts have been told to display like a table, table rows, and table cells respectively — basically, they'll act like HTML table markup, causing the labels and inputs to line up nicely by default. All we then have to do is add a bit of sizing, margin, etc. to make everything look a bit nicer and we're done. <br><br> You'll notice that the caption paragraph has been given display: table-caption; — which makes it act like a table &ltcaption&gt — and caption-side: bottom; to tell the caption to sit on the bottom of the table for styling purposes, even though the markup is before the inputs in the source. This allows for a nice bit of flexibility.
+			</p>
+			<code class="code-example">
+html {
+  font-family: sans-serif;
+}
+
+form {
+  display: table;
+  margin: 0 auto;
+}
+
+form div {
+  display: table-row;
+}
+
+form label, form input {
+  display: table-cell;
+  margin-bottom: 10px;
+}
+
+form label {
+  width: 200px;
+  padding-right: 5%;
+  text-align: right;
+}
+
+form input {
+  width: 300px;
+}
+
+form p {
+  display: table-caption;
+  caption-side: bottom;
+  width: 300px;
+  color: #999;
+  font-style: italic;
+}
+			</code>
+			<p>This gives us the following result:</p>
+			<div class="output-box img7">
+				<img class="images" src="example7.png" alt="relative positioning">
+			</div>
 		</section>
 
-		<section class="main-section" id="flexbox">
+		<section class="main-section" id="flexible_boxes">
 			<header><h1> Flexible boxes ("Flexbox") </h1></header>
+			<p>CSS is a powerful language that can do many things, but it has traditionally fallen down in terms of layout. Traditional old-fashioned layout methods like float and position work, but sometimes they feel more complex, fiddly, inflexible and hacky than they need to be. For example, what if you wanted to:</p>
+			<ul class="list">
+				<li>Vertically center a box of content (not just text; line-height won't work).</li>
+				<li>Make several columns containing different amounts of content have the same height, without using a fixed height, or faking it with background images.</li>
+				<li>Make several boxes in a line take up the same amount of the available space, regardless of how many of them there are, and if they have padding, margin, etc. applied.</li>
+			</ul>
+			<p>The examples above are pretty much impossible to achieve with regular CSS — Flexible boxes (or flexbox) was invented to allow such things to be more easily achieved. <br><br> Let's look at an example; first, some simple HTML:</p>
+			<code class="code-example">
+&ltsection&gt
+  &ltdiv&gtThis is a box&lt/div&gt
+  &ltdiv&gtThis is a box&lt/div&gt
+  &ltdiv&gtThis is a box&lt/div&gt
+&lt/section&gt
+
+&ltbutton class="create"&gt Create box &lt/button&gt
+&ltbutton class="reset"&gt Reset demo &lt/button&gt
+			</code>
+			<p>Here we've got a &ltsection&gt element with three &ltdiv&gts inside, plus a couple of buttons to create a new box and reset the demo. By default, the child elements would not be laid out or sized at all, and using old traditional methods we'd have to carefully size each one, allowing for width, padding, border and margin, and if we added another child element we'd have to completely change all the values. <br><br>Let's instead do this with Flexbox:</p>
+			<code class="code-example">
+html {
+  font-family: sans-serif;
+}
+
+section {
+  width: 93%;
+  height: 240px;
+  margin: 20px auto;
+  background: purple;
+  display: flex;
+}
+
+div {
+  color: white;
+  background: orange;
+  flex: 1;
+  margin-right: 10px;
+  text-shadow: 1px 1px 1px black;
+}
+
+div:last-child {
+  margin-right: 0;
+}
+
+section, div {
+  border: 5px solid rgba(0,0,0,0.85);
+  padding: 10px;
+}
+			</code>
+			<p>Two lines of this CSS are really interesting:</p>
+			<ul class="list">
+				<li>display: flex; tells the &ltsection&gt element's children to be laid out as flexible boxes — by default, they will all stretch to fill the available height of the parent, whatever that is, and be laid out in a row — with enough width to wrap their content.</li>
+				<li>flex: 1; tells each &ltdiv&gt element to take up an equal amount of the space available in the row, no matter how many there are.</li>
+			</ul>
+			<p>The result is below:</p>
+			<div class="output-box img7">
+				<img class="images" src="example8.png" alt="flexbox example">
+			</div>
+
 		</section>
 
-		<section class="main-section" id="grid">
+		<section class="main-section" id="grid_layout">
 			<header><h1> Grid layout </h1></header>
+			<p>Web pages are often laid out using grid systems, in the same manner as print media, and the idea here is to make this process easier and more natural, by defining a grid, and then defining which parts of the content sit within each area of the grid.</p>
 		</section>
 
-
-
+		<section class="main-section" id="reference">
+			<header><h1> Reference </h1></header>
+			<p>All documentation and examples on this page taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Introduction" target="_blank">MDN</a></p>
+		</section>
 
 	</main>
 
